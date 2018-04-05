@@ -89,9 +89,9 @@ for tr in soup.find_all('tr'):
         subgroup = tds[0].get_text().strip()
         if group and subgroup: 
             out_dir = os.path.join(args.out_dir,
-                                  group,
+                                   group,
                                    subgroup)
             pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
     links = get_links(tr)
-    for link in links[1:]:
+    for link in links:
         job(link, out_dir)
